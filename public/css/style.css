@@ -1,0 +1,45 @@
+body{
+    min-height: 100%;
+    position: relative;
+    background-color:#fff;
+    font-family: 'News Cycle', sans-serif;
+    font-size: 1em;
+    /*color: #fff;*/
+  }
+
+/*.navbar{
+    position:relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}*/
+
+.form-control:focus {
+    outline: 0 !important;
+    border-color: initial;
+    box-shadow: none;
+}
+
+a {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+    color:rgba(0,0,0,.9);
+
+}
+
+a.navbar-brand{
+    font-size: 35px; 
+}
+
+a.navbar-brand-footer{
+    font-size: 35px;
+}
+
+div.col-2{
+    position:relative;
+    left:50%;
+}
+
