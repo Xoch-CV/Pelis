@@ -4,7 +4,7 @@
     <!-- Left Side Of Navbar -->
 
         <!-- Logo -->
-        <a class="navbar-brand" href="#">DPelis</a>
+        <a class="navbar-brand" href="{{ url('/index')}}">DPelis</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,13 +13,13 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url('/index')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Movies</a>
+                    <a class="nav-link" href="{{ url('/movies')}}">Movies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Actors</a>
+                    <a class="nav-link" href="{{ url('/actors')}}">Actors</a>
                 </li>
             </ul>
 

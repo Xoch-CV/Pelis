@@ -11,15 +11,30 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::get('/index', function () {
+/*Route::get('/index', function () {
     return view('index');
-});
+});*/
 
-Route::get('/index', 'GenresController@show');
+Route::get('/','GenresController@index');
+
+Route::get('/index', 'GenresController@index');
+Route::get('/genres/{genreName}', 'GenresController@show');
+
+Route::get('/movies','MoviesController@index');
+Route::get('/movies/{movie}','MoviesController@show');
+
+Route::get('/actors','ActorsController@index');
+Route::get('/actors/{actor}','ActorsController@show');
+Route::get('/addactor', 'ActorsController@create');
+Route::post('/actors', 'ActorsController@store');
+
+Route::get('/editactor','ActorsController@edit');
+Route::patch('/updateactor', 'ActorsController@update');
+Route::delete('/deleteactor','ActorsController@destroy');
 
 Auth::routes();
 
