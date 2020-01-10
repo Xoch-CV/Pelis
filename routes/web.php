@@ -19,14 +19,24 @@
     return view('index');
 });*/
 
-Route::get('/','GenresController@index');
-
-Route::get('/index', 'GenresController@index');
+/*Home*/
+Route::get('/','GenresController@index');//Logout
+Route::get('/index', 'GenresController@index');//Register & Login
 Route::get('/genres/{genreName}', 'GenresController@show');
 
-Route::get('/movies','MoviesController@index');
+/*Movies*/
+Route::resource('movies', 'MoviesController');
+/*Route::get('/movies','MoviesController@index');
 Route::get('/movies/{movie}','MoviesController@show');
+Route::get('/addmovie', 'MoviesController@create');
+Route::post('/movies', 'MoviesController@store');
+Route::get('/editmovie','MoviesController@edit');
 
+Route::patch('/updatemovie', ['uses' => 'MoviesController@update']);
+//Route::put('/movie/{movieid}', 'MoviesController@update');
+Route::delete('/deletemovie','MoviesController@destroy');*/
+
+/*Actors*/
 Route::get('/actors','ActorsController@index');
 Route::get('/actors/{actor}','ActorsController@show');
 Route::get('/addactor', 'ActorsController@create');

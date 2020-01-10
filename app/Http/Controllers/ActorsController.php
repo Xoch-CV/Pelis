@@ -8,9 +8,17 @@ use App\Movie;
 
 class ActorsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $actors = Actor::paginate(9);
+      if($request->has('q')){
+        $actors = Actor::where('first_name', 'like', '%' . $request->get('q') . '%')
+          ->paginate(9)
+          ->appends($request ->only('q'));
+      }
+      else{
+        $actors = Actor::paginate(9)->appends($request->only('q'));
+      }
+        //$actors = Actor::paginate(9);
         return view('actors.actors')->with("actors", $actors);
     }
 

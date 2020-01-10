@@ -11,13 +11,31 @@
           <p>Rating: <b>{{$movie->rating}}</b></p>
           <p>Awards: <b>{{$movie->awards}}</b></p>
           <p>Length: <b>{{$movie->length}}</b></p> 
+        
+        <div class="row">
 
-         <h4>Actors</h4>
+          <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+            <form class="" action="{{ route('movies.edit',['movie'=>$movie->id]) }}" method="get">
+              <input type="submit" name="" value="Edit Movie">
+            </form>
+          </div>
 
-       @foreach ($movie->actors as $actor)
+          <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+            <form class="" action="{{ route('movies.destroy',['movie'=>$movie->id]) }}" method="post">
+              @method('DELETE')
+              @csrf
+              <input type="submit" name="" value="Delete Movie">
+            </form>
+          </div>
+
+        </div>
+        <br>
+
+        <h4>Actors</h4>
+        @foreach ($movie->actors as $actor)
            <a class="index-list" href="{{ url('/actors/' . $actor->id)}}">{{$actor->first_name}} {{$actor->last_name}}</a>
            <br>
-       @endforeach  
+        @endforeach  
        
     </main>
 
