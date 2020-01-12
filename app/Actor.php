@@ -10,7 +10,7 @@ class Actor extends Model
     public $guarded = [];
 
     /*public function movie(){
-        return $this->hasMany(Movie::class);
+        return $this->hasOne(Movie::class);
     }*/
 
     public function movies(){

@@ -23,8 +23,8 @@
 
         {{ $actors->links() }}
 
-        <form class="" action="/addactor" method="get">
-         {{-- <input type="hidden" name="id" value="">--}}
+        <form class="" action="{{ route('actors.create')}}" method="get">
+        @csrf
           <input type="submit" name="" value="Add Actor">
         </form>
 

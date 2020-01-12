@@ -27,7 +27,6 @@ class MoviesController extends Controller
     {
 
       //$this->authorize('edit', $event);
-      //dd($movie_actors);
       return view('movies.detail')->with("movie", $movie);
     }
 
@@ -38,34 +37,42 @@ class MoviesController extends Controller
 
     public function store(Request $form){
         
-
         $rules = [
           'title'=> "string|min:3|unique:movies,title",
+          'genre_id'=> "integer|min:1|max:15",
           'sinopsis'=> "string|min:5|max:200",
+          'trailer'=> "string|max:200",
           'release_date'=> "date",
           'length'=> "integer|min:60|max:200",
           'rating'=> "numeric|min:0|max:10",
-          'awards'=> "integer|min:0"
-          //'photo'=> "",
+          'awards'=> "integer|min:0",
+          'image'=> "file"
         ];
 
         $this->validate($form, $rules);
 
         $newMovie = new Movie();
 
+        $path= $form->file('image')->store('public');
+        $namePath = basename($path);
+
         $newMovie->title = $form["title"];
-        $newMovie->rating = $form["rating"];
-        $newMovie->awards = $form["awards"];
-        //$newMovie->genre_id = Genre::where('name', 'like','%' . $form["genre_name"] . '%')->value('id');
-        //$newMovie->genre_id = Genre::where('name', 'like', $form["genre_name"])->value('id');
+        $newMovie->genre_id = Genre::where('name', 'like','%' . $form["genre_name"] . '%')->value('id');
         //dd($form["genre_name"]);
         //dd($newMovie->genre_id);
+        $newMovie->sinopsis = $form["sinopsis"];
+        $newMovie->trailer = $form["trailer"];
         $newMovie->release_date= $form["release_date"];
-        $newMovie->length=$form["length"];
- 
+        $newMovie->length= $form["length"];
+        $newMovie->rating = $form["rating"];
+        $newMovie->awards = $form["awards"];
+        $newMovie->image = $namePath;
+        
+        //$newMovie->genre_id = Genre::where('name', 'like', $form["genre_name"])->value('id');
+
         $newMovie->save();
         //dd($newMovie);
-        return redirect('/movies');
+        return redirect('movies');
     }
 
     public function edit(Movie $movie)
@@ -78,31 +85,38 @@ class MoviesController extends Controller
 
       $rules = [
         'title'=> "string|min:3|unique:movies,title",
+        'genre_id'=> "integer|min:1|max:15",
         'sinopsis'=> "string|min:5|max:200",
+        'trailer'=> "string|max:200",
         'release_date'=> "date",
         'length'=> "integer|min:60|max:200",
         'rating'=> "numeric|min:0|max:10",
-        'awards'=> "integer|min:0"
-        //'photo'=> "",
+        'awards'=> "integer|min:0",
+        'image'=> "file"
       ];
 
       $this->validate($form, $rules);
         
+      $path= $form->file('image')->store('public');
+      $namePath = basename($path);
+
       $movie=Movie::find($id);
 
         $movie->title = $form["title"];
+        $movie->genre_id = Genre::where('name', 'like','%' . $form["genre_name"] . '%')->value('id');
+        //dd($form["genre_name"]);
+        //dd($newMovie->genre_id);
+        $movie->sinopsis = $form["sinopsis"];
+        $movie->trailer = $form["trailer"];
+        $movie->release_date= $form["release_date"];
+        $movie->length= $form["length"];
         $movie->rating = $form["rating"];
         $movie->awards = $form["awards"];
-        //$movie->genre_id = Genre::where('name', 'like','%' . $form["genre_name"] . '%')->value('id');
-        //$movie->genre_id = Genre::where('name', 'like', $form["genre_name"])->value('id');
-        //dd($form["genre_name"]);
-        //dd($movie->genre_id);
-        $movie->release_date= $form["release_date"];
-        $movie->length=$form["length"];
-        
-        $movie->update();
+        $movie->image = $namePath;
+      
+      $movie->save();
 
-        return redirect('movies');
+      return redirect('movies');
 
     }
 
@@ -114,6 +128,33 @@ class MoviesController extends Controller
       $movie->delete();
 
       return redirect('movies');
+    }
+
+    public function order(Request $req){
+      $selection = $req->get('selection');
+      //dd($selection);
+      if($selection=="desc"){
+      $movies = Movie::orderBy('title', 'desc');
+      //$movies = \DB::table('movies')->orderBy('title', 'asc');
+      //$movies->paginate(6);
+      //$movies=Movie::paginate(6)->sortByDesc('title'); 
+      //$movies = Movie::orderBy('title', 'desc')->paginate(6);
+      //$movies = Movie::orderBy('title', 'DESC')->get();
+      //$movies = Movie::sortByDesc('title')->get()->paginate(6);
+      }else{
+      $movies = Movie::orderBy('title', 'asc');
+      //$movies=Movie::paginate(6);
+      //$movies->sortBy('title');
+      //$movies=Movie::paginate(6)->sortBy('title'); 
+      //$movies = Movie::orderBy('title', 'asc')->paginate(6);
+      //$movies = Movie::orderBy('title', 'ASC')->get();
+      //$movies = \DB::table('movies')->orderBy('title', 'asc');
+      //$movies->paginate(6);
+      //$movies = Movie::sortBy('title')->get()->paginate(6);
+      }
+
+      return view('movies.movies', ["movies" =>$movies -> paginate(6)]);
+      //return view('movies.movies')->with("movies", $movies);
     }
 
 }

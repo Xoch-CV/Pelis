@@ -24,6 +24,48 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
+                            <label for="nacionality">Nacionality</label>
+                            <input type="text" name="nacionality" value="{{old("nacionality")}}"><br>
+                            <p>{{$errors->first("nacionality")}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
+                            <label for="birthday_date">Birthday date</label>
+                            <input type="date" name="birthday_date" value="{{old("birthday_date")}}"><br>
+                            <p>{{$errors->first("birthday_date")}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
+                            <label for="edad">Age</label>
+                            <input type="number" name="edad" value="{{old("edad")}}"><br>
+                            <p>{{$errors->first("edad")}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
+                            <label for="awards">Awards</label>
+                            <input type="number" name="awards" value="{{old("awards")}}"><br>
+                            <p>{{$errors->first("awards")}}</p>
+                        </div>
+                    </div>
+
+                    <!--
+                    <div class="row">
+                        <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
+                            <label for="rating">Rating</label>
+                            <input type="number" name="rating" value="{{old("rating")}}"><br>
+                            <p>{{$errors->first("rating")}}</p>
+                        </div>
+                    </div>
+                    -->
+
                     <!-- Movie -->
                     <div class="row">
                         <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputregister">
@@ -42,7 +84,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-2">
-                        <button type="submit">Add Actor</button>
+                        <button type="submit">Save</button>
                         </div>
                     </div>
 
