@@ -41,7 +41,7 @@ class ActorsController extends Controller
     public function store(Request $form){
 
     $rules = [
-      'name'=> "required|string|min:2",
+      'name'=> "required|string|min:2|unique:actors,first_name",
       'surname'=> "required|string|min:1",
       'nacionality'=> "required|string|min:1",
       'birthday_date'=> "required|date",

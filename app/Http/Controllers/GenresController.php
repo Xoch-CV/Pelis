@@ -12,7 +12,7 @@ class GenresController extends Controller
     {
         $genresName = Genre::all();
         $movies= Movie::all();
-        //$movies= Movie::paginate(3);
+        //$movies= Movie::paginate(4);
         return view("/index")->with("movies", $movies)->with("genres", $genresName);
     }
 
@@ -24,6 +24,8 @@ class GenresController extends Controller
         //dd($genreId);
         $movies=Movie::where('genre_id','like',$genreId)->paginate(3);
         //dd($movies);
-        return view("/genre")->with("movies", $movies)->with("genre", $genre);
+        $movies_top=Movie::where('genre_id','like',$genreId)->orderBy('rating', 'desc')->take(2)->get();
+        //dd($movies_top);
+        return view("/genre")->with("movies", $movies)->with("genre", $genre)->with("moviestop", $movies_top);
     }
 }

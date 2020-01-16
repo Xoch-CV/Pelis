@@ -38,9 +38,9 @@ class MoviesController extends Controller
     public function store(Request $form){
         
         $rules = [
-          'title'=> "string|min:3|unique:movies,title",
+          'title'=> "string|min:2|unique:movies,title",
           'genre_id'=> "integer|min:1|max:15",
-          'sinopsis'=> "string|min:5|max:200",
+          'sinopsis'=> "string|min:5|max:500",
           'trailer'=> "string|max:200",
           'release_date'=> "date",
           'length'=> "integer|min:60|max:200",
@@ -84,9 +84,9 @@ class MoviesController extends Controller
     public function update(Request $form, $id){
 
       $rules = [
-        'title'=> "string|min:3|unique:movies,title",
+        'title'=> "string|min:3",
         'genre_id'=> "integer|min:1|max:15",
-        'sinopsis'=> "string|min:5|max:200",
+        'sinopsis'=> "string|min:5|max:500",
         'trailer'=> "string|max:200",
         'release_date'=> "date",
         'length'=> "integer|min:60|max:200",

@@ -30,7 +30,7 @@
             <!-- Search bar -->
                 <form class="form-inline my-2 my-lg-7"  action="/actors/{{request('q')}}" method="get">
                 @csrf
-                    <input class="form-control py-2 col-sm-4 col-md-5 col-lg-5" type="text" name="q" value="{{request('q')}}" placeholder="Which movie are you looking for?">
+                    <input class="form-control py-2 col-sm-5 col-md-7 col-lg-7" type="text" name="q" value="{{request('q')}}" placeholder="Which movie are you looking for?">
                         <span class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button">
                                 <i class="fa fa-search"></i>
@@ -40,7 +40,7 @@
                 </form>
 
             <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul id="myNavbar" class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

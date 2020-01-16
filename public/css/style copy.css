@@ -8,25 +8,30 @@
 
  /* Breakpoints 576 768 992 1200 */
 
-/***** MOBILE *****/
+
 /*general*/
-
-
+html {
+    height:100vh;
+    /*width: 100vh;*/
+}
 
 body {
+    min-height: 100vh;
     position: relative;
     background-color: #fafafa;
     font-family: 'News Cycle', sans-serif;
     font-size: 1em;
 }
 
-.container {
-    padding-bottom: 20%; 
+.container-fluid container {
+    min-height: 100vh;
+    /*min-height: 100%;*/
+    overflow-y: hidden;
+    /*margin-bottom: 110px;*/
 }
 
-div.container-fluid.container {
-    padding-bottom: 25%; 
-}
+
+/*navbar*/
 
 .navbar.navbar-expand-lg.navbar-light{
     background-color:#9ad2cb;
@@ -45,12 +50,12 @@ div.container-fluid.container {
     color:#424b54;
 }
 
-/*search bar*/
 
-form.form-inline {
+/*search*/
+.form-inline {
+    /*width: 100%;*/
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    /*flex-wrap: wrap;*/
     justify-content: center;
 }
 
@@ -79,6 +84,7 @@ button.btn.btn-outline-secondary{
     color:#fadf63;
 }
 
+
 /*main*/
 a.index-genre {
     text-decoration: none;
@@ -98,21 +104,20 @@ h4.genre-name:hover {
     font-size: 2em;
 }
 
-div.row.index {
+div.row-index {
     display:flex;
     flex-direction: row;
-    justify-content: center;
+    /*justify-content: space-around;*/
 }
 
 div.card-index-movie {
-    position: relative;
-    flex-wrap: wrap;
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center
 }
 
 div.card{
+    /*height: 260px;*/
     min-height: 100%;
     margin: 5px;
 }
@@ -160,6 +165,7 @@ a.btn.btn-primary:hover {
     transform: scale(1.3);
 }
 
+
 /*genre-list*/
 ul.pagination {
     display: felx;
@@ -181,29 +187,23 @@ li.page-item a.page-link:hover {
     border-color:#969a97;
 }
 
+
 /*movie-list*/
-div.row.movie-list {
+div.movie-list {
     display:flex;
     flex-direction: column;
 }
 
 div.order-list {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 10px;
 }
 
 div.row-movie-list-addnew {
     display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-form.addnew {
-    display: flex;
-    justify-content: center;
-    padding: 3%;
 }
 
 input.movie-list.btn.btn-primary.add {
@@ -219,37 +219,16 @@ input.movie-list.btn.btn-primary.add:hover{
     transform: scale(1.3);
 }
 
-div.form-group.order-selector {
-    position: relative;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction:column;
-    justify-items: center;
-}
-
-#inlineFormCustomSelect {
-    margin: 2%;
-}
-
 input.movie-list.btn.btn-primary {
     background-color:#969a97;
     border-color: #969a97;
     color: #fafafa;
-    width: 81.2px;
-    height: 38px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
 }
 
-div.card.movie {
+.card.movies {
+    /*height: 260px;*/
     min-height: 100%;
-    min-height: 100%;
-    display:flex;
-    flex-direction: colum;
-    margin-top: 38px;
-    margin-right: 20px;
+    margin: 5px;
 }
 
 .card-img.movies {
@@ -269,6 +248,7 @@ div.card.movie {
     padding: 5px 15px;
 }
 
+
 /*movie-detail*/
 div.movie-datail{
     display:flex;
@@ -276,9 +256,8 @@ div.movie-datail{
     margin-bottom: 25px;
 }
 
-div.row.movie-datail {
+div.row-movie-datail {
     display: flex;
-    flex-wrap: wrap;
     flex-direction:row;
     justify-content:space-around;
     padding: 10px;
@@ -292,7 +271,6 @@ div.img-movie-detail {
 div.movie-data-detail {
     display:flex;
     flex-direction: column;
-    padding: 0 5%;
 }
 
 div.movie-data-detail h4.movie-data-datail-title {
@@ -330,6 +308,19 @@ div.row-movie-detail-form {
     margin: 15px;
 }
 
+/*.movie-detail-form-button {
+    background-color:#fadf63;
+    color: #969a97;
+    border-radius: 50px;
+    margin: 25px auto;
+    padding: 0;
+    height: 40px;
+    width: 120px;
+    box-sizing: border-box;
+    font-size: 1em;
+    border-color: none;
+}*/
+
 input.movie-detail-form.btn.btn-primary {
     background-color: #fadf63;
     border-color: #fadf63;
@@ -345,28 +336,27 @@ input.movie-detail-form.btn.btn-primary:hover{
 
 div.card.movie {
     min-height: 100%;
-    min-height: 8%;
+    min-height: 100%;
     display:flex;
     flex-direction: colum;
+    margin-top: 38px;
+    margin-right: 20px;
 }
 
 img.img-movie-detail {
     width: 100%;
     height: 100%;
+    
 }
 
 
 /*movie-detail-actors*/
+div.movie-actors {
+    margin-bottom: 110px;
+}  
+
 a.index-actor {
     text-decoration: none;
-    color:#969a97;
-    padding-left: 25%;
-}
-
-a.index-actor:hover {
-    text-decoration: none;
-    color:#424b54;
-
 }
 
 h4.actor-name {
@@ -385,30 +375,22 @@ h4.actor-name:hover {
 
 div.movie-actors-index {
     display: flex;
-    flex-wrap: wrap;
     flex-direction:row;
-    justify-content: center;
     padding: 10px;
 }
 
-.card.movies-actors {
-    background-color: #fadf63;
+.card movie-actors {
+    min-width: 100%;
     min-height: 100%;
 }
 
 img.movie-detail-actors-photo {
     width: 100%;
     height: 100%;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
 }
 
 
 /*Actors-List*/
-div.row.actor-list {
-    display:flex;
-    flex-direction: column;
-}
 .card-header.actors {
     height: 18%;
     border-bottom: none;
@@ -455,26 +437,23 @@ div.actor-info{
     margin-bottom: 25px;
 }
 
-div.row.actor-info {
+div.row-actor-info {
     display: flex;
-    flex-wrap: wrap;
     flex-direction:row;
     justify-content:space-around;
     padding: 10px;
 }
 
-div.card.actors {
+card.actors {
     min-height: 100%;
     min-height: 100%;
     display:flex;
     flex-direction: colum;
-    margin-bottom: 5%;
 }
 
 img.img-actors-info {
     width: 100%;
     height: 100%;
-    
 }
 
 div.actor-data-info {
@@ -510,6 +489,7 @@ input.actor-info-form.btn.btn-primary:hover{
     transform: scale(1.3);
 }
 
+
 /*actors-info-movies*/
 div.actors-movies {
     margin-bottom: 110px;
@@ -517,13 +497,6 @@ div.actors-movies {
 
 a.index-movies {
     text-decoration: none;
-    color:#969a97;
-    padding-left:5%;
-}
-
-a.index-movies:hover {
-    text-decoration: none;
-    color:#424b54;
 }
 
 h4.movie-title {
@@ -542,26 +515,29 @@ h4.movie-title:hover {
 
 div.actors-movie-index {
     display: flex;
-    flex-wrap: wrap;
     flex-direction:row;
-    justify-content: center;
     padding: 10px;
 }
 
-div.actor-movies {
-    background-color: #fadf63;
+card.actor-movies {
     min-height: 100%;
     min-height: 100%;
 }
 
-img.card.actor-info-movies-img {
+img.card actor-info-movies-img {
     width: 100%;
     height: 100%;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
 }
 
 
+/*footer*/
+div.row-footer {
+    display:none;
+    background-color:#9ad2cb;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+}
 
 
 /* Formularios */
@@ -639,8 +615,6 @@ button.movie-create-form.btn.btn-primary:hover{
     color: #fafafa;
     transform: scale(1.3);
 }
-
-
 /*Auth*/
 
 .row.logo {
@@ -648,7 +622,7 @@ button.movie-create-form.btn.btn-primary:hover{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    margin-top:30px;
+    margin-top:50px;
 }
 
 .logo {
@@ -760,395 +734,34 @@ p.errors{
     font-weight: normal;
   }
 
-/*footer*/
-footer {
-    background-color:#9ad2cb;
-    position: absolute;
-    bottom:0;
-    width: 100%;
-    padding: 1%;
-}
-
-.row-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.img.logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    margin-top:50px;
-}
-
-div.social-media {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-a.social {
-    padding: 3px;
-}
-
-
-
-
-
 
 /* Media Queries */
 
 @media (min-width: 768px){
-
     body{
-        background-color:#fafafa;
-    }
-
-    form.form-inline {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    
-    span.input-group-append{
-        margin: 0;
-    }
-    
-    input.form-control.py-2 {
-        background-color: #fafafa;
-        border: none;
-        border-bottom-right-radius: 0;
-        border-top-right-radius:0;
-        float: left;
-    }
-    
-    button.btn.btn-outline-secondary{
-        background-color: #fafafa;
-        border: none;
-        border-bottom-left-radius: 0;
-        border-top-left-radius:0;
-        float: right;
-        height: 38px;
-    }
-    
-    .fa-search:hover {
-        color:#fadf63;
-    }
-
-    /*index*/
-    div.row.index {
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    div.order-list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 10px;
-    }
-
-    div.row.movie-list-addnew {
-        display: flex;
-        align-items: flex-start;
-    }
-
-    div.form-group.order-selector {
-        display: flex;
-        flex-direction:row;
-        justify-content: flex-end;
-
-    }
-
-    input.movie-list.btn.btn-primary {
         background-color:#969a97;
-        border-color: #969a97;
-        color: #fafafa;
-    }
-
-    /*movie detail*/
-    div.card.movie {
-        min-height: 100%;
-        min-width: 8%;
-        display:flex;
-        flex-direction: colum;
-        margin-top: 38px;
-        margin-right: 20px;
-    }
-
-    .card-img.movies {
-        width: 100%;
-        height: 100%;
-        justify-content: flex-start;
-    }
-
-    div.row.movie-datail {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content:space-around;
-        padding: 10px;
-    }
-
-    /*movie datail actors*/
-    div.movie-actors-index {
-        display: flex;
-        flex-direction:row;
-        justify-content: flex-start;
-        padding: 10px;
-    }
-
-    /*Actors info*/
-
-    div.row.actor-info {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content:space-around;
-        padding: 10px;
-    }
-
-    /*Actors info movies*/
-    div.actors-movie-index {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content: center;
-        padding: 10px;
-    }
+      }
 }
-
 @media (min-width: 992px){
 
     body{
-        position: relative;
-        background-color:#fafafa;
-        font-family: 'News Cycle', sans-serif;
-        font-size: 1em;
-    }
-
-    form.form-inline {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .input-group-append{
-        margin: 0;
-    }
-    
-    input.form-control.py-2 {
-        background-color: #fafafa;
-        border: none;
-        border-bottom-right-radius: 0;
-        border-top-right-radius:0;
-        float: left;
-    }
-    
-    button.btn.btn-outline-secondary{
-        background-color: #fafafa;
-        border: none;
-        border-bottom-left-radius: 0;
-        border-top-left-radius:0;
-        float: right;
-        height: 38px;
-    }
-
-    div.row.index {
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    div.row-movie-list-addnew {
-        display: flex;
-        align-items: flex-start;
-    }
-
-    div.form-group.order-selector {
-        display: flex;
-        flex-direction:row;
-        justify-content: flex-end;
-
-    }
-
-    input.movie-list.btn.btn-primary {
-        background-color:#969a97;
-        border-color: #969a97;
-        color: #fafafa;
-    }
-
-    /* movie detail*/
-    div.card.movie {
         min-height: 100%;
-        min-width: 8%;
-        display:flex;
-        flex-direction: colum;
-        margin-top: 38px;
-        margin-right: 20px;
-    }
-    
-    .card-img.movies {
-        width: 100%;
-        height: 100%;
-        justify-content: flex-start;
-    }
-
-    div.row.movie-datail {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content:space-around;
-        padding: 10px;
-    }
-
-    /*movie datail actors*/
-    div.movie-actors-index {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content: flex-start;
-        padding: 10px;
-    }
-
-    /*Actors detail*/
-
-    div.row.actor-info {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content:space-around;
-        padding: 10px;
-    }
-
-    /*Actors info movies*/
-    div.actors-movie-index {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content: center;
-        padding: 10px;
-        
-    }
-
-}
-
-
-@media (min-width: 1200px){
-    
-    body{
         position: relative;
         background-color:#fafafa;
         font-family: 'News Cycle', sans-serif;
         font-size: 1em;
-    }
-
+        /*color: #fff;*/
+      }
+    
     form.form-inline {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+        display: inline;
     }
 
-    .input-group-append{
-        margin: 0;
-    }
-    
-    input.form-control.py-2 {
-        background-color: #fafafa;
-        border: none;
-        border-bottom-right-radius: 0;
-        border-top-right-radius:0;
-        float: left;
-    }
-    
-    button.btn.btn-outline-secondary{
-        background-color: #fafafa;
-        border: none;
-        border-bottom-left-radius: 0;
-        border-top-left-radius:0;
-        float: right;
-        height: 38px;
-    }
-
-    div.row.index {
+    div.card-index-movie {
         display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    div.row-movie-list-addnew {
-        display: flex;
-        align-items: flex-start;
-    }
-
-    div.form-group.order-selector {
-        display: flex;
-        flex-direction:row;
-        justify-content: flex-end;
-
-    }
-
-    input.movie-list.btn.btn-primary {
-        background-color:#969a97;
-        border-color: #969a97;
-        color: #fafafa;
-    }
-
-    /* movie detail*/
-    div.card.movie {
-         min-height: 100%;
-        min-width: 8%;
-        display:flex;
-        flex-direction: colum;
-        margin-top: 38px;
-        margin-right: 20px;
-    }
-        
-    .card-img.movies {
-        width: 100%;
-        height: 100%;
-        justify-content: flex-start;
-    }
-    
-    div.row.movie-datail {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content:space-around;
-        padding: 10px;
-    }
-
-    /*movie datail actors*/
-    div.movie-actors-index {
-            display: flex;
-            flex-wrap: nowrap;
-            flex-direction:row;
-            justify-content: flex-start;
-            padding: 10px;
-    }
-    
-    /*Actors detail*/
-    
-    div.row.actor-info {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content:space-around;
-        padding: 10px;
-    }
-
-    /*Actors info movies*/
-    div.actors-movie-index {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction:row;
-        justify-content: center;
-        padding: 10px;
-    
+        flex-direction: column;
     }
 
 }
+
 

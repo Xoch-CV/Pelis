@@ -5,7 +5,7 @@
 
             <!-- Logo -->
             <a class="navbar-brand" href="{{ url('/index')}}">
-                <img class="logo" style="height:6rem;width:6rem" src="{{asset('img/Pochocleando_2.png')}}" alt="">
+                <img class="logo" style="height:6rem;width:6rem" src="" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -13,34 +13,9 @@
 
             <!-- Navegation Links -->
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('index')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('movies')}}">Movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('actors')}}">Actors</a>
-                    </li>
-                </ul>
 
-            <!-- Center Side Of Navbar -->
-
-            <!-- Search bar -->
-                <form class="form-inline my-2 my-lg-7"  action="/actors/{{request('q')}}" method="get">
-                @csrf
-                    <input class="form-control py-2 col-sm-4 col-md-5 col-lg-5" type="text" name="q" value="{{request('q')}}" placeholder="Which movie are you looking for?">
-                        <span class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-
-                </form>
-
-            <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <!-- Right Side Of Navbar -->
+                <ul id="myNavbar" class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

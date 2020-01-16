@@ -1,60 +1,82 @@
 @extends('layouts.actors')
  @section('content')
 
+  <div class="container-fluid container">
     <main>
-        <h4>{{$actor->first_name}} {{$actor->last_name }}</h4>
-        <div class="">
-          <img src="/storage/{{$actor->photo}}" alt="{{$actor->first_name}} {{$actor->last_name }}">
-        </div>
 
-          <p>Nacionality: <b>{{$actor->nacionality}}</b> </p>
-          <p>Birthday date: <b>{{\Carbon\Carbon::parse($actor->birthday_date)->locale('es')->isoFormat("LL")}}</b></p> </p>
+      <div class="actor-info">
+        
+        <div class= "row actor-info">
+
+        {{-- Info --}}
           
-          <p>Age: <b>{{$actor->edad}}</b></p>
-          <p>Awards: <b>{{$actor->awards}}</b></p>
-          <p>Rating: <b>{{$actor->rating}}</b></p>
+            {{-- Photo --}}
 
-          <p>Pelicula favorita: <b>{{$movie->title}}</b> </p>
-          {{--<p>Pelicula favorita:
-          @foreach($movie as $info)
-               <b>{{$info->title}}</b>
-          @endforeach 
-          </p>--}}
+            <div class="card actors" style="width:18.7rem; height:25rem">
+              <img class="img-actors-info" src="/storage/{{$actor->photo}}" alt="{{$actor->first_name}} {{$actor->last_name }}">
+            </div>
 
+            {{-- Biography --}}  
+            
+            <div class="actor-data-info">
+              <h4 class="actor-info-title">{{$actor->first_name}} {{$actor->last_name }}</h4>
+              <p>Nacionality: <b>{{$actor->nacionality}}</b> </p>
+              <p>Birthday date: <b>{{\Carbon\Carbon::parse($actor->birthday_date)->locale('es')->isoFormat("LL")}}</b></p>
+              
+              <p>Age: <b>{{$actor->edad}}</b></p>
+              <p>Awards: <b>{{$actor->awards}}</b></p>
+              <p>Rating: <b>{{$actor->rating}}</b></p>
 
+              <p>Pelicula favorita: <b>{{$movie->title}}</b> </p>
+              {{--<p>Pelicula favorita:
+              @foreach($movie as $info)
+                  <b>{{$info->title}}</b>
+              @endforeach 
+              </p>--}}
+          
+              {{--Edit & Delete--}}
+              <div class="row actor-info-form">
 
-        <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                  <form class="actor-info-edit" action="{{ route('actors.edit',$actor->id) }}" method="get">
+                  @csrf
+                    <input type="hidden" name="id" value="{{$actor->id}}">
+                    <input class="actor-info-form btn btn-primary" type="submit" name="" value="   Edit   ">
+                  </form>
+                </div>
+                <br>
 
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-            <form class="" action="{{ route('actors.edit',$actor->id) }}" method="get">
-            @csrf
-              <input type="hidden" name="id" value="{{$actor->id}}">
-              <input type="submit" name="" value="Edit Actor">
-            </form>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                  <form class="actor-info-edit" action="{{ route('actors.destroy',$actor->id) }}" method="post">
+                    @method('DELETE')
+                    @csrf
+                    <input type="hidden" name="id" value="{{$actor->id}}">
+                    <input class="actor-info-form btn btn-primary" type="submit" name="" value=" Delete ">
+                  </form>
+                </div>
+
+              </div>
+        
+            </div>
+        
+      </div>
+
+        {{-- Movies --}}
+        <div class="actors-movies">
+          <a class="index-movies" href="{{ url('movies')}}"><h4 class="movie-title">Movies</h4></a>
+          
+          <div class="actors-movie-index px-5 py-2">
+          @if ($actor->movies)
+            @foreach($actor->movies as $movie)
+            <div class="card actor-movies" style="width: 14rem; height:16rem">
+              <img class="card actor-info-movies-img" src="/storage/{{$movie->image}}" alt="{{$movie->title}}">
+              <a class="index-movies" href="{{ url('/movies/' . $movie->id)}}"> {{$movie->title}} </a>
+            </div>
+            @endforeach
+          @endif
           </div>
-          <br>
-
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3">
-            <form class="" action="{{ route('actors.destroy',$actor->id) }}" method="post">
-              @method('DELETE')
-              @csrf
-              <input type="hidden" name="id" value="{{$actor->id}}">
-              <input type="submit" name="" value="Delete Actor">
-            </form>
-          </div>
-
         </div>
-        <br>
-        
-        
-        <h4>Movies</h4> 
-        @if ($actor->movies)
-          @foreach($actor->movies as $movie)
-            <a class="index-list" href="{{ url('/movies/' . $movie->id)}}"> {{$movie->title}} </a>
-            <br>
-          @endforeach
-        @endif
-      
-    </main>
 
+    </main>
+  </div>
  @endsection
