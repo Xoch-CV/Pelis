@@ -69,8 +69,8 @@
           @if ($actor->movies)
             @foreach($actor->movies as $movie)
             <div class="card actor-movies" style="width: 14rem; height:16rem">
-              <img class="card actor-info-movies-img" src="/storage/{{$movie->image}}" alt="{{$movie->title}}">
-              <a class="index-movies" href="{{ url('/movies/' . $movie->id)}}"> {{$movie->title}} </a>
+            <a href="{{ url('/movies/' . $movie->id)}}"><img class="card actor-info-movies-img" src="/storage/{{$movie->image}}" alt="{{$movie->title}}"></a>
+              {{--<a class="index-movies" href="{{ url('/movies/' . $movie->id)}}"> {{$movie->title}} </a>--}}
             </div>
             @endforeach
           @endif

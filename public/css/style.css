@@ -161,8 +161,14 @@ a.btn.btn-primary:hover {
 }
 
 /*genre-list*/
+ 
+.row.genre-list {
+    display:flex;
+    flex-direction: column;
+}
+
 ul.pagination {
-    display: felx;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 10px;
@@ -202,6 +208,7 @@ div.row-movie-list-addnew {
 
 form.addnew {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     padding: 3%;
 }
@@ -231,7 +238,7 @@ div.form-group.order-selector {
     margin: 2%;
 }
 
-input.movie-list.btn.btn-primary {
+input.movie-list.btn.btn-primary.submit {
     background-color:#969a97;
     border-color: #969a97;
     color: #fafafa;
@@ -837,7 +844,7 @@ a.social {
         color:#fadf63;
     }
 
-    /*index*/
+    /*movies-index*/
     div.row.index {
         display:flex;
         flex-direction: row;
@@ -846,21 +853,35 @@ a.social {
 
     div.order-list {
         display: flex;
+        flex-wrap: nowrap;
         flex-direction: row;
         justify-content: space-between;
         padding: 10px;
     }
 
-    div.row.movie-list-addnew {
+    div.row-movie-list-addnew {
         display: flex;
+        flex-direction: row;
         align-items: flex-start;
     }
 
+    form.form-inline {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+
     div.form-group.order-selector {
+        position: relative;
+        flex-wrap: nowrap;
         display: flex;
         flex-direction:row;
         justify-content: flex-end;
+    }
 
+    #inlineFormCustomSelect {
+        margin: 0;
     }
 
     input.movie-list.btn.btn-primary {
@@ -883,6 +904,16 @@ a.social {
         width: 100%;
         height: 100%;
         justify-content: flex-start;
+    }
+
+    img.movie-detail-actors-photo {
+        width: 100%;
+        height: 100%;
+    }
+
+    img.img-movie-detail {
+        width: 100%;
+        height: 100%;
     }
 
     div.row.movie-datail {
@@ -963,17 +994,33 @@ a.social {
         justify-content: space-around;
     }
 
+    div.order-list {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
     div.row-movie-list-addnew {
         display: flex;
+        flex-direction: row;
         align-items: flex-start;
     }
 
-    div.form-group.order-selector {
+    form.form-inline {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    /*div.form-group.order-selector {
+        position: relative;
+        flex-wrap: nowrap;
         display: flex;
         flex-direction:row;
         justify-content: flex-end;
-
-    }
+    }*/
 
     input.movie-list.btn.btn-primary {
         background-color:#969a97;
@@ -995,6 +1042,11 @@ a.social {
         width: 100%;
         height: 100%;
         justify-content: flex-start;
+    }
+
+    img.img-movie-detail {
+        width: 100%;
+        height: 100%;
     }
 
     div.row.movie-datail {
@@ -1079,17 +1131,33 @@ a.social {
         justify-content: space-around;
     }
 
+    div.order-list {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
     div.row-movie-list-addnew {
         display: flex;
+        flex-direction: row;
         align-items: flex-start;
     }
 
-    div.form-group.order-selector {
+    form.form-inline {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    /*div.form-group.order-selector {
+        position: relative;
+        flex-wrap: nowrap;
         display: flex;
         flex-direction:row;
         justify-content: flex-end;
-
-    }
+    }*/
 
     input.movie-list.btn.btn-primary {
         background-color:#969a97;
@@ -1111,6 +1179,11 @@ a.social {
         width: 100%;
         height: 100%;
         justify-content: flex-start;
+    }
+
+    img.img-movie-detail {
+        width: 100%;
+        height: 100%;
     }
     
     div.row.movie-datail {

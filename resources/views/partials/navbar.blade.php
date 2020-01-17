@@ -28,7 +28,7 @@
             <!-- Center Side Of Navbar -->
 
             <!-- Search bar -->
-                <form class="form-inline my-2 my-lg-7"  action="/actors/{{request('q')}}" method="get">
+                <form class="form-inline my-2 my-lg-7"  action="/movies/{{request('q')}}" method="get">
                 @csrf
                     <input class="form-control py-2 col-sm-4 col-md-5 col-lg-5" type="text" name="q" value="{{request('q')}}" placeholder="Which movie are you looking for?">
                         <span class="input-group-append">

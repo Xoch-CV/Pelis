@@ -15,13 +15,13 @@
                         <div class="row">
                             <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputcreate">
                                 <label for="name">First name : </label>
-                                <input id="name" type="text" name="name" value="{{ old('first_name') }}"><br>
-                                <p class="errors">{{$errors->first('first_name')}}</p>
+                                <input id="name" type="text" name="name" value="{{ old('name') }}"><br>
+                                <p class="errors">{{$errors->first('name')}}</p>
                             </div>
                             <div class="col-11 col-sm-12 col-md-10 col-lg-5 inputcreate">
                                 <label for="surname">Last name : </label>
-                                <input id="surname" type="text" name="surname" value="{{ old('las_name') }}" ><br>
-                                <p class="errors">{{$errors->first('last_name')}}</p>
+                                <input id="surname" type="text" name="surname" value="{{ old('surname') }}" ><br>
+                                <p class="errors">{{$errors->first('surname')}}</p>
                             </div>
                         </div>
                         {{--Nacionality & Birthday & Age--}}

@@ -60,8 +60,8 @@
           <div class="movie-actors-index px-5 py-2">
             @foreach ($movie->actors as $actor)
               <div class="card movies-actors" style="width: 14rem; height:16rem">
-                <img class="card movie-detail-actors-photo" src="/storage/{{$actor->photo}}" alt="{{$actor->first_name}} {{$actor->last_name}}">
-                <a class="index-actor" href="{{ url('actors/' . $actor->id)}}">{{$actor->first_name}} {{$actor->last_name}}</a>
+                <a href="{{ url('actors/' . $actor->id)}}"> <img class="card movie-detail-actors-photo" src="/storage/{{$actor->photo}}" alt="{{$actor->first_name}} {{$actor->last_name}}"></a>
+                {{--<a class="index-actor" href="{{ url('actors/' . $actor->id)}}">{{$actor->first_name}} {{$actor->last_name}}</a>--}}
               </div>
             @endforeach 
           </div> 

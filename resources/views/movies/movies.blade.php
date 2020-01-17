@@ -33,7 +33,7 @@
                       <option value="rating">Rating</option>
                     </select>
                     {{--</div calss="button">--}}
-                    <input class="movie-list btn btn-primary" type="submit" class="button">
+                    <input class="movie-list btn btn-primary submit" type="submit" class="button">
                     {{--</div>--}}
                 </div>
           </form>

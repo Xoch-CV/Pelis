@@ -5,6 +5,7 @@
 
          {{-- Category Name --}}
          <div class="row genre-list">
+         
          @foreach ($genre as $info)
                <h4 class="genre-name">{{$info->name}}</h4>
 

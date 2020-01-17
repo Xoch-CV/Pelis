@@ -18,8 +18,6 @@ class MoviesController extends Controller
       else{
         $movies = Movie::paginate(6)->appends($request->only('q'));
       }
-        //$movies = Movie::paginate(6);
-        //$movies = Movie::all()->orderBy('title', 'desc')->simplePaginate(6);
         return view('movies.movies')->with("movies", $movies);
     }
 
@@ -40,10 +38,10 @@ class MoviesController extends Controller
         $rules = [
           'title'=> "string|min:2|unique:movies,title",
           'genre_id'=> "integer|min:1|max:15",
-          'sinopsis'=> "string|min:5|max:500",
+          'sinopsis'=> "string|min:5|max:700",
           'trailer'=> "string|max:200",
           'release_date'=> "date",
-          'length'=> "integer|min:60|max:200",
+          'length'=> "integer|min:60|max:400",
           'rating'=> "numeric|min:0|max:10",
           'awards'=> "integer|min:0",
           'image'=> "file"
@@ -84,12 +82,12 @@ class MoviesController extends Controller
     public function update(Request $form, $id){
 
       $rules = [
-        'title'=> "string|min:3",
+        'title'=> "string|min:2",
         'genre_id'=> "integer|min:1|max:15",
-        'sinopsis'=> "string|min:5|max:500",
+        'sinopsis'=> "string|min:5|max:700",
         'trailer'=> "string|max:200",
         'release_date'=> "date",
-        'length'=> "integer|min:60|max:200",
+        'length'=> "integer|min:60|max:400",
         'rating'=> "numeric|min:0|max:10",
         'awards'=> "integer|min:0",
         'image'=> "file"
